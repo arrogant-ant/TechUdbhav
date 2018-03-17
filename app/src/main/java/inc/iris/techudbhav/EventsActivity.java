@@ -83,7 +83,8 @@ public class EventsActivity extends AppCompatActivity
                 , "Tech Expo", "Graffiti"
                 , "Game-O-Thon","Soccer Bot"};
         String[] prize = {"10,000", "12,100", "10,000", "12,100", "10,000","10,000", "12,100", "10,000", "12,100", "10,000"};
-        int[] imgId = {R.drawable.ic_ambassador, R.drawable.ic_college, R.drawable.ic_developer, R.drawable.carousel1, R.drawable.carousel2};
+        int[] imgId = {R.drawable.ic_ambassador, R.drawable.ic_college, R.drawable.ic_developer, R.drawable.carousel1, R.drawable.carousel2,
+                R.drawable.ic_ambassador, R.drawable.ic_college, R.drawable.ic_developer, R.drawable.carousel1, R.drawable.carousel2};
         for (int i = 0; i < name.length; i++) {
             event = new TechEvent(name[i], prize[i], imgId[i]);
             events.add(event);
