@@ -9,12 +9,14 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    ImageView tech, udbhav;
+    ImageView tech, udbhav,mascot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         tech = findViewById(R.id.tech);
         udbhav = findViewById(R.id.udbhav);
+        mascot=findViewById(R.id.mascot);
         startAnimation();
 
         Thread background = new Thread() {
@@ -65,8 +68,16 @@ public class SplashActivity extends AppCompatActivity {
         udbhavAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         udbhavAnimator.setDuration(2000);
 
+        ObjectAnimator mascotAnimatorX=ObjectAnimator.ofFloat(mascot,View.SCALE_X,1,0.5f);
+        mascotAnimatorX.setInterpolator(new DecelerateInterpolator());
+        mascotAnimatorX.setDuration(2000);
+
+        ObjectAnimator mascotAnimatorY=ObjectAnimator.ofFloat(mascot,View.SCALE_Y,1,0.5f);
+        mascotAnimatorY.setInterpolator(new DecelerateInterpolator());
+        mascotAnimatorY.setDuration(2000);
+
         AnimatorSet set=new AnimatorSet();
-        set.play(techAnimator).with(udbhavAnimator);
+        set.play(techAnimator).with(udbhavAnimator).with(mascotAnimatorX).with(mascotAnimatorY);
         set.start();
     }
 }

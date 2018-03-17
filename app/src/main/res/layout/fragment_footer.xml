@@ -21,6 +21,7 @@
             android:src="@drawable/ic_fb" />
 
         <ImageView
+            android:id="@+id/youtube"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:padding="8dp"
@@ -29,6 +30,7 @@
             android:src="@drawable/ic_youtube" />
 
         <ImageView
+            android:id="@+id/mail"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:padding="8dp"

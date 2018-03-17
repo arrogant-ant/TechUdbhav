@@ -1,6 +1,9 @@
 package inc.iris.techudbhav;
 
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,7 +19,9 @@ import android.widget.Toast;
  */
 public class FooterFragment extends Fragment {
 
-    ImageView fb;
+    ImageView fb,mail,youtube;
+    private final String youtubeID="N0LEm_gcIFA&t=18s";
+    private final String fbURI="https://www.facebook.com/TechUdbhav";
 
     public FooterFragment() {
         // Required empty public constructor
@@ -32,7 +37,26 @@ public class FooterFragment extends Fragment {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"clicked",Toast.LENGTH_SHORT).show();
+                getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(fbURI)));
+            }
+        });
+        mail=view.findViewById(R.id.mail);
+        mail.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent email=new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:ietebits@gmail.com"));
+                                        email.putExtra(Intent.EXTRA_SUBJECT, "Report from app");
+                                        getActivity().startActivity(email);
+                                    }
+                                }
+        );
+
+        youtube=view.findViewById(R.id.youtube);
+        youtube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v="+youtubeID)));
+
             }
         });
         return view;
