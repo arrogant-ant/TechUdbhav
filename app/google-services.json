@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "289188447980",
+    "firebase_url": "https://techudbhav-417b3.firebaseio.com",
+    "project_id": "techudbhav-417b3",
+    "storage_bucket": "techudbhav-417b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289188447980:android:5bfad22a06a339cf",
+        "android_client_info": {
+          "package_name": "inc.iris.techudbhav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289188447980-59u7nq53uf8ikme70tl18bg2a9is0d12.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "inc.iris.techudbhav",
+            "certificate_hash": "631a50b50f73664d2e007b6417c1906c9357fec6"
+          }
+        },
+        {
+          "client_id": "289188447980-3a37i1dr74botsm8pi6u8ck1b2sb6b6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "inc.iris.techudbhav",
+            "certificate_hash": "66185c00a14b95d6cc6ae7005c6a1c146ad51fcf"
+          }
+        },
+        {
+          "client_id": "289188447980-u7ul245cpte4ovhergph1g5sj2c8tr9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA8bYhUy50iiaWGvCGoeONDIdX8Dl0lBw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289188447980-u7ul245cpte4ovhergph1g5sj2c8tr9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

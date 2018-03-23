@@ -82,6 +82,9 @@ public class EventsActivity extends AppCompatActivity
                 , "Industrial Problem Solution", "People's Voice"
                 , "Tech Expo", "Graffiti"
                 , "Game-O-Thon","Soccer Bot"};
+
+        //TODO update prize and images accordingly
+
         String[] prize = {"10,000", "12,100", "10,000", "12,100", "10,000","10,000", "12,100", "10,000", "12,100", "10,000"};
         int[] imgId = {R.drawable.ic_ambassador, R.drawable.ic_college, R.drawable.ic_developer, R.drawable.carousel1, R.drawable.carousel2,
                 R.drawable.ic_ambassador, R.drawable.ic_college, R.drawable.ic_developer, R.drawable.carousel1, R.drawable.carousel2};
