@@ -86,8 +86,8 @@ public class EventsActivity extends AppCompatActivity
         //TODO update prize and images accordingly
 
         String[] prize = {"10,000", "12,100", "10,000", "12,100", "10,000","10,000", "12,100", "10,000", "12,100", "10,000"};
-        int[] imgId = {R.drawable.ic_ambassador, R.drawable.ic_college, R.drawable.ic_developer, R.drawable.carousel1, R.drawable.carousel2,
-                R.drawable.ic_ambassador, R.drawable.ic_college, R.drawable.ic_developer, R.drawable.carousel1, R.drawable.carousel2};
+        int[] imgId = {R.drawable.technocrat, R.drawable.coding, R.drawable.insight, R.drawable.carousel1, R.drawable.carousel2,
+                R.drawable.ic_people_black_24dp, R.drawable.ic_college, R.drawable.ic_brush_black_24dp, R.drawable.carousel1, R.drawable.soccerbot};
         for (int i = 0; i < name.length; i++) {
             event = new TechEvent(name[i], prize[i], imgId[i]);
             events.add(event);

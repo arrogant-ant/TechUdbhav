@@ -98,6 +98,46 @@ public class Home extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        if(id == R.id.nav_developer){
+            Intent dev=new Intent(Home.this,Developer.class);
+            startActivity(dev);
+        }
+        else if(id == R.id.nav_gallery){
+            Intent gall=new Intent(Home.this,Gallery.class);
+            startActivity(gall);
+        }
+        else if(id == R.id.nav_reg){
+            Intent reg=new Intent(Home.this,Registration.class);
+            startActivity(reg);
+        }
+        else if(id == R.id.nav_schedule){
+            Intent sch=new Intent(Home.this,Schedule.class);
+            startActivity(sch);
+        }
+        else if(id == R.id.nav_sponsors){
+            Intent spon=new Intent(Home.this,Sponsors.class);
+            startActivity(spon);
+        }
+        else if(id == R.id.nav_workshops){
+            Intent wsp=new Intent(Home.this,Workshops.class);
+            startActivity(wsp);
+        }
+        else if(id == R.id.nav_techudbhav){
+            Intent tu=new Intent(Home.this,TechUdbhav.class);
+            startActivity(tu);
+        }
+        else if(id == R.id.nav_ambassador){
+            Intent ca=new Intent(Home.this,CampusAmbassador.class);
+            startActivity(ca);
+        }
+        else if(id == R.id.nav_bit){
+            Intent bs=new Intent(Home.this,BITSindri.class);
+            startActivity(bs);
+        }
+        else if(id == R.id.nav_team){
+            Intent t=new Intent(Home.this,Team.class);
+            startActivity(t);
+        }
         NavigationHelper.navigate(Home.this,id);
 
 

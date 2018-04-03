@@ -37,8 +37,28 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-auth:3.2.2'
     // Required only if Facebook login support is required
     compile('com.facebook.android:facebook-android-sdk:4.27.0')
+    //Required for circleMenu
+    compile 'com.github.hitomis:CircleMenu:v1.0.2'
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 apply plugin: 'com.google.gms.google-services'

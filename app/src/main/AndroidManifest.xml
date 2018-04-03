@@ -31,7 +31,32 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity android:name=".Developer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home" />
+        </activity>
+        <activity android:name=".Gallery">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home" />
+        </activity>
+        <activity android:name=".Registration" />
+        <activity android:name=".CampusAmbassador" />
+        <activity android:name=".Schedule" />
+        <activity android:name=".Workshops" />
+        <activity android:name=".Sponsors" />
+        <activity android:name=".TechUdbhav" />
+        <activity android:name=".BITSindri" />
+        <activity android:name=".Team" />
+        <activity android:name=".MrMissTechnocratActivity" />
+        <activity android:name=".BytetheBits" />
+        <activity android:name=".SoccerBot" />
+        <activity android:name=".TechExpo" />
+        <activity android:name=".Insight" />
+        <activity android:name=".GeekoMania" />
+        <activity android:name=".GameOThon"></activity>
     </application>
 
 </manifest>

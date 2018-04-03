@@ -12,32 +12,54 @@
         <item
             android:id="@+id/nav_event"
             android:icon="@drawable/ic_event"
-            android:title="Event" />
+            android:title="Events" />
         <item
             android:id="@+id/nav_reg"
             android:icon="@drawable/ic_reg"
             android:title="Registration" />
         <item
             android:id="@+id/nav_ambassador"
-            android:icon="@drawable/ic_ambassador"
+            android:icon="@drawable/ic_business_center_black_24dp"
             android:title="Campus Ambassador" />
+        <item
+            android:icon="@drawable/ic_event_note_black_24dp"
+            android:id="@+id/nav_schedule"
+            android:title="Schedule"
+            />
+        <item
+            android:icon="@drawable/ic_build_black_24dp"
+            android:id="@+id/nav_workshops"
+            android:title="Workshops" />
+        <item
+            android:icon="@drawable/ic_monetization_on_black_24dp"
+            android:id="@+id/nav_sponsors"
+            android:title="Sponsors" />
+        <item
+            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_gallery"
+            android:title="Gallery" />
 
     </group>
 
     <item android:title="About">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_tech_udhbhav"
+                android:id="@+id/nav_techudbhav"
+                android:icon="@drawable/ic_speaker_notes_black_24dp"
                 android:title="Tech Udbhav" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_bit"
                 android:icon="@drawable/ic_college"
                 android:title="BIT Sindri" />
+
             <item
                 android:id="@+id/nav_developer"
                 android:icon="@drawable/ic_developer"
                 android:title="Developer"/>
+            <item
+                android:id="@+id/nav_team"
+                android:icon="@drawable/ic_group_black_24dp"
+                android:title="Team" />
         </menu>
     </item>
 

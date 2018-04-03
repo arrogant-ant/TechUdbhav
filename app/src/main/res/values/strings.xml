@@ -28,4 +28,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_about">About</string>
+    <string name="campus_ambassadorhead">Campus Ambassador Program</string>
+    <string name="description_ambassador">Join our Campus Ambassador Program today.</string>
+    <string name="logo_ca">We are hiring and we want you!</string>
 </resources>
