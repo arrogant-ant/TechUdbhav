@@ -26,7 +26,7 @@
                 android:contentDescription="@string/campus_ambassadorhead"
                 android:scaleType="centerCrop"
 
-                android:src="@drawable/groupdiscussion"
+                android:src="@drawable/projector"
                 android:layout_width="match_parent"
                 android:layout_height="350dp" />
             <android.support.v7.widget.Toolbar
