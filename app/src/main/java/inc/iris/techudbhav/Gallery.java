@@ -25,7 +25,7 @@ public class Gallery extends AppCompatActivity {
         setContentView(R.layout.activity_gallery);
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Gallery");
+        toolbar.setTitle("Gallery ->");
 
         recyclerViewGallery = (RecyclerView)findViewById(R.id.recycleView);
         adapter = new MyCustomAdapterGallery(this, DataGallery.getData());

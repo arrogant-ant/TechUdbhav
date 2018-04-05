@@ -26,7 +26,7 @@
                 android:contentDescription="@string/campus_ambassadorhead"
                 android:scaleType="centerCrop"
 
-                android:src="@drawable/soccerwalle"
+                android:src="@drawable/botsoccer"
                 android:layout_width="match_parent"
                 android:layout_height="350dp" />
             <android.support.v7.widget.Toolbar
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title=""
+                app:title="Tech Udbhav'18"
                 app:layout_collapseMode="pin">
 
             </android.support.v7.widget.Toolbar>
@@ -78,11 +78,11 @@
                     android:orientation="horizontal"
                     android:padding="12dp">
                     <ImageView
-                        android:src="@drawable/ic_adb"
+                        android:src="@drawable/soccerbot_icon"
                         android:contentDescription="@string/app_name"
                         android:layout_weight="1"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="30dp" />
                     <TextView
                         android:layout_weight="9"
                         android:layout_width="0dp"
@@ -95,14 +95,26 @@
                         android:textColor="@color/colorPrimaryText"/>
                 </LinearLayout>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/description_ambassador"
+                    android:text="Description"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:text="Ever heard of robot playing soccer? Soccer Bot is an event based on the controlling of robot while playing an innovative version of the sports game Soccer.This is a robotic segment which consists of knockout rounds. So use your knowledge and skills to customize the robot either in physical design or programming design (or ideally, both)"
                     android:textSize="15sp"
                     android:lineSpacingMultiplier="1.5"
                     android:layout_marginTop="12dp"
                     android:padding="12dp"
                     />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Details"
+                    android:layout_marginTop="15dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
