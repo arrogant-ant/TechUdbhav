@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,12 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import inc.iris.techudbhav.logic.NavigationHelper;
 
 public class EventsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,7 +36,7 @@ public class EventsActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.events_nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
         setViewPager();
 
@@ -77,6 +71,16 @@ public class EventsActivity extends AppCompatActivity
 
             }
         });
+
+       /* viewPager.setPageMargin((int) (getResources().getDisplayMetrics().widthPixels * -0.33));
+        viewPager.setOffscreenPageLimit(5);
+        viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+            @Override public void transformPage(View page, float position) {
+                page.setScaleX(0.7f - Math.abs(position * 0.4f));
+                page.setScaleY(0.8f - Math.abs(position * 0.6f));
+                page.setAlpha(1.0f - Math.abs(position * 0.5f));
+            }
+        });*/
 
     }
 
@@ -120,8 +124,8 @@ public class EventsActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        NavigationHelper.navigate(EventsActivity.this, id);
+
+        NavigationHelper.navigate(EventsActivity.this,item);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

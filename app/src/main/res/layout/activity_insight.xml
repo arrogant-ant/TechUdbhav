@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:title="Developer"
-
-    tools:context="inc.iris.techudbhav.Developer">
+    tools:context="inc.iris.techudbhav.Insight">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -117,7 +115,8 @@
                   android:layout_height="wrap_content"
                   android:layout_gravity="center_horizontal"
                   android:text="Details"
-                  android:elevation="10dp"/>
+                  android:elevation="10dp"
+                  android:onClick="getDetails"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -130,7 +129,7 @@
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_event_note_black_24dp"/>
+        android:src="@drawable/ic_event_note_black_24dp" />
 
 
 
