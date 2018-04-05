@@ -63,7 +63,8 @@
         <activity android:name=".IndustrialProblemSolution" />
         <activity android:name=".PeoplesVoice" />
         <activity android:name=".Grafitti" />
-        <activity android:name=".MemeShow"></activity>
+        <activity android:name=".MemeShow" />
+        <activity android:name=".EKryptics"></activity>
     </application>
 
 </manifest>
