@@ -13,7 +13,7 @@
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carousel"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -27,191 +27,18 @@
         app:strokeColor="#FF777777"
         app:strokeWidth="1dp" />
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/footer_frag"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/carousel"
-        android:paddingTop="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.example.nischaypc.dashboard.MainActivity">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="0dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="0dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-
-                            <RelativeLayout
-                                android:id="@+id/rellay_timeline"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_centerVertical="true"
-                                android:layout_weight="0.65"
-                                android:background="#F44336"
-                                android:clickable="true"
-                                android:foreground="?attr/selectableItemBackground">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true">
-
-                                    <ImageView
-                                        android:id="@+id/imgView1"
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:layout_centerHorizontal="true"
-                                        android:adjustViewBounds="true"
-                                        android:elevation="50dp"
-                                        android:padding="8dp"
-                                        android:scaleType="centerInside"
-                                        android:src="@drawable/fest_icon"
-                                        android:tint="#FFFFFF" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/imgView1"
-                                        android:layout_centerHorizontal="true"
-                                        android:layout_marginTop="5dp"
+    <com.hitomi.cmlibrary.CircleMenu
+ android:id="@+id/circle_Menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp"
+        tools:ignore="MissingConstraints" />
 
 
-                                        android:text="TECH UDBHAV"
-                                        android:textSize="14sp" />
-
-                                </RelativeLayout>
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:id="@+id/rellay_friends"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.55"
-                                android:background="#FDD835"
-                                android:clickable="true"
-                                android:foreground="?attr/selectableItemBackground">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true">
-
-                                    <ImageView
-                                        android:id="@+id/imgView2"
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:layout_centerHorizontal="true"
-                                        android:adjustViewBounds="true"
-                                        android:padding="8dp"
-                                        android:scaleType="centerInside"
-                                        android:src="@drawable/college_icon"
-                                        android:tint="#FFFFFF" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/imgView2"
-                                        android:layout_centerHorizontal="true"
-                                        android:layout_marginTop="5dp"
-                                        android:text="BIT Sindri"
-                                        android:textSize="14sp" />
-
-                                </RelativeLayout>
-
-                            </RelativeLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1">
-
-
-
-                            <RelativeLayout
-                                android:id="@+id/rellay_music"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.65"
-                                android:background="#00C853"
-                                android:clickable="true"
-                                android:foreground="?attr/selectableItemBackground">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true">
-
-                                    <ImageView
-                                        android:id="@+id/imgView4"
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:layout_centerHorizontal="true"
-                                        android:adjustViewBounds="true"
-                                        android:padding="8dp"
-                                        android:scaleType="centerInside"
-                                        android:src="@drawable/reachus_icon"
-                                        android:tint="#FFFFFF" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/imgView4"
-                                        android:layout_centerHorizontal="true"
-                                        android:layout_marginTop="5dp"
-                                        android:text="Reach Us"
-                                        android:textSize="14sp" />
-
-                                </RelativeLayout>
-
-                            </RelativeLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-
-            </RelativeLayout>
-
-        </LinearLayout>
-    </ScrollView>
 
     <fragment
         android:id="@+id/footer_frag"

@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -15,17 +16,23 @@ public class Gallery extends AppCompatActivity {
 
     RecyclerView recyclerViewGallery;
 
+    Toolbar toolbar;
     MyCustomAdapterGallery adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Gallery");
 
         recyclerViewGallery = (RecyclerView)findViewById(R.id.recycleView);
         adapter = new MyCustomAdapterGallery(this, DataGallery.getData());
         recyclerViewGallery.setAdapter(adapter);
-        recyclerViewGallery.setLayoutManager(new LinearLayoutManager(this)); // Vertical Orientation By Default
+        StaggeredGridLayoutManager mStaggeredHorizontalLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL); // (int spanCount, int orientation)
+        recyclerViewGallery.setLayoutManager(mStaggeredHorizontalLayoutManager);
+
 
     }
 
@@ -36,8 +43,8 @@ public class Gallery extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+  //  @Override
+   /* public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
@@ -54,5 +61,5 @@ public class Gallery extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

@@ -109,6 +109,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:gravity="center"
                     android:text="A coding competition to embark upon the coding skills of the students. This contest will be hosted by a renowned online forum. The competition will land a bunch of internship opportunities for the students. This is an inter-college competition."
                     android:textColor="#000000"></TextView>
 
