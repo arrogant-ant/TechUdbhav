@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="QUIZ"
+                app:title="Tech Udbhav'18"
                 app:layout_collapseMode="pin">
 
             </android.support.v7.widget.Toolbar>
@@ -64,8 +64,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:text="Geek-O-Mania"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -95,27 +96,31 @@
                         android:textColor="@color/colorPrimaryText"/>
                 </LinearLayout>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Intercollege Quiz Competition"
+                    android:text="Description"
                     android:textSize="15sp"
-                    android:lineSpacingMultiplier="1.5"
-                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
+                    android:textAlignment="center"
                     android:padding="12dp"
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="0dp"
                     android:padding="12dp"
-                    android:text="In this age of interconnectivity, ideas and information are always available on our fingertips. But the skill to present the ideas bringing out the aspects is what makes us class apart. "/>
+                    android:text="A Technical decryption competition. It will focus on the problem solving capabilities of the student. A multi-round segment that will include visual and analytical conundrums.This is an inter-college competition."
+                    android:textAlignment="center"
+                    android:lineSpacingMultiplier="1.5"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
                     android:text="Details"
                     android:elevation="10dp"/>
             </LinearLayout>

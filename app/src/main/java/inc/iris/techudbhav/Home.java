@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        CircleMenu circleMenu=(CircleMenu)findViewById(R.id.circle_Menu);
+        /*CircleMenu circleMenu=(CircleMenu)findViewById(R.id.circle_Menu);
         circleMenu.setMainMenu(Color.parseColor("#F44336"),R.drawable.workshop_two,R.drawable.workshop)
                 .addSubMenu(Color.parseColor("#00B0FF"),R.drawable.iotblack)
                 .addSubMenu(Color.parseColor("#006064"),R.drawable.android_appy)
@@ -47,7 +47,7 @@ public class Home extends AppCompatActivity
                     public void onMenuSelected(int i) {
                         Toast.makeText(Home.this,"You selected"+arrayName[i],Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
 
 
 

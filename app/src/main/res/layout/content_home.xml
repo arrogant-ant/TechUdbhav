@@ -13,7 +13,7 @@
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carousel"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -26,17 +26,6 @@
         app:slideInterval="3000"
         app:strokeColor="#FF777777"
         app:strokeWidth="1dp" />
-
-    <com.hitomi.cmlibrary.CircleMenu
- android:id="@+id/circle_Menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
 
 
 

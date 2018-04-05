@@ -87,7 +87,7 @@
                         android:layout_weight="9"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/logo_ca"
+                        android:text="It's all about the title!"
                         android:textSize="14sp"
                         android:textStyle="italic"
                         android:layout_gravity="center_vertical"
@@ -97,12 +97,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/description_ambassador"
+                    android:text="Who are you amidst that sea of strangers? Are you the one who wishes to rise above others and crowned as the face of crowd? Do you think you have it in you to walk that stage with your head held high , incorporating your technical views and knowledge into that perfect fashion you wish the world to witness?The stakes are high and the competition is tough but when it comes to this  title , everything is worth fighting for !"
+                    android:textAlignment="center"
                     android:textSize="15sp"
                     android:lineSpacingMultiplier="1.5"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="0dp"
                     android:padding="12dp"
                     />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="more"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

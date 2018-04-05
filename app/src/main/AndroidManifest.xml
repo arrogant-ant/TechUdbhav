@@ -39,12 +39,10 @@
                 android:value=".Home" />
         </activity>
         <activity android:name=".Gallery">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Home" />
         </activity>
-
         <activity android:name=".Registration" />
         <activity android:name=".CampusAmbassador" />
         <activity android:name=".Schedule" />
@@ -59,7 +57,9 @@
         <activity android:name=".TechExpo" />
         <activity android:name=".Insight" />
         <activity android:name=".GeekoMania" />
-        <activity android:name=".GameOThon"></activity>
+        <activity android:name=".GameOThon" />
+        <activity android:name=".IndustrialProblemSolution" />
+        <activity android:name=".PeoplesVoice"></activity>
     </application>
 
 </manifest>
