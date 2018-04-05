@@ -81,6 +81,7 @@
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="28dp"
+                        android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:contentDescription="@string/app_name"
                         android:src="@drawable/ic_keyboard_black_24dp" />
@@ -90,28 +91,33 @@
                         android:layout_height="wrap_content"
                         android:text="Unleash the Coder within you"
                         android:textSize="14sp"
-                        android:textStyle="italic"
+
                         android:layout_gravity="center_vertical"
-                        android:padding="12dp"
+                        android:padding="5dp"
                         android:textColor="@color/colorPrimaryText"/>
                 </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2 Round of coding competition
-👉1st round :
-5 questions (2 easy,2medium,1Hard level Q's)    Duration: 1Day
-👉2nd round :
-3 Questions (1 Easy,1Medium, 1Hard level Q's)    Duration: 1 hours
-*NOTE:*Top 20 candidates of 1st round will qualify for 2nd round
-Coding platform : Hackerrank"
-
+                    android:text="Description"
+                    android:id="@+id/description_btb"
                     android:textSize="15sp"
                     android:lineSpacingMultiplier="1.5"
                     android:layout_marginTop="12dp"
                     android:padding="12dp"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A coding competition to embark upon the coding skills of the students. This contest will be hosted by a renowned online forum. The competition will land a bunch of internship opportunities for the students. This is an inter-college competition."
+                    android:textColor="#000000"></TextView>
 
+                <Button
+                    android:text="More"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
