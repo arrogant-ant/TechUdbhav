@@ -1,6 +1,9 @@
 package inc.iris.techudbhav;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -11,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,12 +24,9 @@ import java.util.List;
 public class EventsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private RecyclerView.Adapter adapter;
-    private ImageView eventImg;
-    private TextView eventName;
-    private TextView eventPrize;
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,57 +44,42 @@ public class EventsActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.events_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        //set detail card
-        setDetail();
-
-        //Recycle view
-        setRecyclerView();
-    }
-
-    private void setDetail() {
-        eventImg = findViewById(R.id.event_img);
-        eventName = findViewById(R.id.event_title);
-        eventPrize = findViewById(R.id.event_prize);
-        Bundle extra = getIntent().getExtras();
-        eventImg.setImageResource(extra.getInt(TechEvent.EVENT_IMG, R.drawable.ic_developer));
-        eventName.setText(extra.getString(TechEvent.EVENT_NAME, "Code War"));
-        eventPrize.setText(extra.getString(TechEvent.EVENT_PRIZE, "12,000"));
-    }
-
-    /**
-     * Recycler view setup
-     */
-
-    private void setRecyclerView() {
-        recyclerView = findViewById(R.id.events_recycler);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new CustomAdapter(EventsActivity.this, getEventData()));
+        setViewPager();
 
     }
 
-    private List<TechEvent> getEventData() {
-        List<TechEvent> events = new ArrayList<>();
-        TechEvent event;
-        String[] name = {"Mr. & Miss Technocrat", "Byte The Bits"
-                , "Insight", "Geek-O-Mania"
-                , "Industrial Problem Solution", "People's Voice"
-                , "Tech Expo", "Graffiti"
-                , "Game-O-Thon","Soccer Bot"};
+    private void setViewPager() {
+        EventPagerAdapter pagerAdapter;
+        tabLayout=findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText("Offline Events"));
+        tabLayout.addTab(tabLayout.newTab().setText("Online Events"));
 
-        //TODO update prize and images accordingly
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        Fragment tabs[]=new Fragment[]{new OfflineEventsTab(),new OnlineEventTab()};
 
-        String[] prize = {"10,000", "12,100", "10,000", "12,100", "10,000","10,000", "12,100", "10,000", "12,100", "10,000"};
-        int[] imgId = {R.drawable.technocrat, R.drawable.coding, R.drawable.insight, R.drawable.carousel1, R.drawable.carousel2,
-                R.drawable.ic_people_black_24dp, R.drawable.ic_college, R.drawable.ic_brush_black_24dp, R.drawable.carousel1, R.drawable.soccerbot};
-        for (int i = 0; i < name.length; i++) {
-            event = new TechEvent(name[i], prize[i], imgId[i]);
-            events.add(event);
-        }
-        return events;
+        viewPager=findViewById(R.id.view_pager);
+        pagerAdapter=new EventPagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),tabs);
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
     }
+
 
     /**
      * Navigation actions

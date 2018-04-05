@@ -13,12 +13,15 @@ public class TechEvent {
     private int imgRes;
     private String about;
     private String regLink;
+    private String classname;
 
-    public TechEvent(String name, String prize, int imgRes) {
+    public TechEvent(String name, String prize, int imgRes,String classname) {
         this.name = name;
         this.prize = prize;
         this.imgRes = imgRes;
+        this.classname=classname;
     }
+
 
     public TechEvent(String name, String prize, int imgRes, String about, String regLink) {
         this.name = name;
@@ -26,6 +29,10 @@ public class TechEvent {
         this.imgRes = imgRes;
         this.about = about;
         this.regLink = regLink;
+    }
+
+    public String getClassname() {
+        return classname;
     }
 
     public String getName() {

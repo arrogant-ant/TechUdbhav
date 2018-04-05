@@ -14,6 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import inc.iris.techudbhav.logic.EventInterface;
+
 /**
  * Created by Sud on 2/27/18.
  */
@@ -24,13 +26,14 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
     private final LayoutInflater inflater;
     private List<TechEvent> events;
     private Context context;
-
-    CustomAdapter(Context context, List<TechEvent> events)
+    private EventInterface listener;
+     CustomAdapter(Context context, List<TechEvent> events,EventInterface listener)
     {
 
         this.context=context;
         inflater= LayoutInflater.from(context);
         this.events=events;
+        this.listener=listener;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -66,13 +69,15 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
         @Override
         public void onClick(View view) {
             TechEvent event=events.get(getAdapterPosition());
-            Intent intent=new Intent(context,EventsActivity.class);
+            listener.setDetail(event);
+
+           /* Intent intent=new Intent(context,EventsActivity.class);
             intent.putExtra(TechEvent.EVENT_NAME,event.getName());
             intent.putExtra(TechEvent.EVENT_PRIZE,event.getPrize());
             intent.putExtra(TechEvent.EVENT_IMG,event.getImgRes());
             Activity activity=(Activity)context;
             activity.startActivity(intent);
-            activity.finish();
+            activity.finish();*/
 
         }
     }
