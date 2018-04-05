@@ -12,7 +12,7 @@ public class CampusAmbassador extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_othon);
+        setContentView(R.layout.activity_soccer_bot);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if(getSupportActionBar() != null)
