@@ -1,5 +1,5 @@
 package inc.iris.techudbhav;
-
+/*
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -79,5 +79,49 @@ public class SplashActivity extends AppCompatActivity {
         AnimatorSet set=new AnimatorSet();
         set.play(techAnimator).with(udbhavAnimator).with(mascotAnimatorX).with(mascotAnimatorY);
         set.start();
+    }
+}
+*/
+import android.content.Intent;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ProgressBar;
+
+import com.felipecsl.gifimageview.library.GifImageView;
+
+import org.apache.commons.io.IOUtils;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+public class SplashActivity extends AppCompatActivity {
+
+    GifImageView gifImageView;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        gifImageView=findViewById(R.id.gifImageView);
+
+        //set gifImageResource
+        try {
+            InputStream inputStream= getAssets().open("techudbhav.gif");
+            byte[] bytes= IOUtils.toByteArray(inputStream);
+            gifImageView.setBytes(bytes);
+            gifImageView.startAnimation();
+        } catch (IOException e) {
+
+        }
+        //wait for 5 seconds
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                SplashActivity.this.startActivity(new Intent(SplashActivity.this,Home.class));
+                SplashActivity.this.finish();
+            }
+        },5000);
     }
 }
