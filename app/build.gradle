@@ -43,6 +43,8 @@ dependencies {
     //For splash screen
     compile 'com.felipecsl:gifimageview:2.1.0'
     compile 'commons-io:commons-io:2.4'
+    //for circle menu
+    compile 'com.github.hitomis:CircleMenu:v1.0.2'
 
     //text format
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'

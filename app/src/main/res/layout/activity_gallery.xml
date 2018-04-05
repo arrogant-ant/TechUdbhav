@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".Gallery">
-
+<include android:id="@+id/toolbar"
+    layout="@layout/app_bar"
+    ></include>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
