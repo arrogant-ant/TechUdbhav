@@ -35,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
 
                     // Thread will sleep for 1 seconds
                     sleep(2500);
-                    Intent i = new Intent(getBaseContext(), Home.class);
+                    Intent i = new Intent(getBaseContext(), Login.class);
                     startActivity(i);
 
                     //Remove activity
