@@ -45,7 +45,7 @@ public class OnlineEventTab extends Fragment implements EventInterface {
         View view=inflater.inflate(R.layout.fragment_offline_events, container, false);
         setRecyclerView(view);
 
-        showcased=new TechEvent("Mr. & Miss Technocrat","10,000",R.drawable.technocrat,"inc.iris.techudbhav.MrMissTechnocratActivity");
+        showcased=new TechEvent("eKryptics","10,000",R.drawable.technocrat,"inc.iris.techudbhav.MrMissTechnocratActivity");
         detailCard=view.findViewById(R.id.detail_card);
         detailCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,23 +89,16 @@ public class OnlineEventTab extends Fragment implements EventInterface {
     private List<TechEvent> getEventData() {
         List<TechEvent> events = new ArrayList<>();
         TechEvent event;
-        String[] name = {"Mr. & Miss Technocrat", "Byte The Bits"
-                , "Insight", "Geek-O-Mania"
-                , "Industrial Problem Solution", "People's Voice"
-                , "Tech Expo"
-                , "Game-O-Thon","Soccer Bot"};
+        String[] name = {"eKryptics", "Graffiti"
+                , "Meme Show"};
         String[] classname={"MrMissTechnocratActivity", "BytetheBits"
-                , "Insight", "GeekoMania"
-                , "Geekomania", "Geekomania"
-                , "TechExpo"
-                , "GameOThon","SoccerBot"};
+                , "Insight"};
         String packageName="inc.iris.techudbhav";
 
         //TODO update prize and images accordingly
 
-        String[] prize = {"10,000", "12,100", "10,000", "12,100", "10,000","10,000", "12,100", "10,000", "12,100"};
-        int[] imgId = {R.drawable.technocrat, R.drawable.coding, R.drawable.insight, R.drawable.carousel1,
-                R.drawable.ic_people_black_24dp, R.drawable.ic_college, R.drawable.ic_brush_black_24dp, R.drawable.carousel1, R.drawable.soccerbot};
+        String[] prize = {"10,000", "12,100", "10,000"};
+        int[] imgId = {R.drawable.technocrat, R.drawable.coding, R.drawable.insight};
         for (int i = 0; i < name.length; i++) {
             event = new TechEvent(name[i], prize[i], imgId[i],packageName+"."+classname[i]);
             events.add(event);

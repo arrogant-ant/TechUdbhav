@@ -86,6 +86,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ProgressBar;
 
 import com.felipecsl.gifimageview.library.GifImageView;
@@ -98,7 +99,7 @@ import java.io.InputStream;
 public class SplashActivity extends AppCompatActivity {
 
     GifImageView gifImageView;
-
+    private static final String TAG = "SplashActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,8 +113,8 @@ public class SplashActivity extends AppCompatActivity {
             byte[] bytes= IOUtils.toByteArray(inputStream);
             gifImageView.setBytes(bytes);
             gifImageView.startAnimation();
-        } catch (IOException e) {
-
+        } catch (Exception e) {
+            Log.d(TAG, "onCreate: Caught exception");
         }
         //wait for 5 seconds
         new Handler().postDelayed(new Runnable() {
