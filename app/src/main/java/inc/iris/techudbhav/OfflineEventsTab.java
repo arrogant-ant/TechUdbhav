@@ -106,7 +106,7 @@ public class OfflineEventsTab extends Fragment implements EventInterface {
 
         String[] prize = {"-", "10,000", "-", "-", "-","-", "Exciting Prizes", "-", "10,000"};
         int[] imgId = {R.drawable.mrmiss_carousel, R.drawable.coding_carosel, R.drawable.insight, R.drawable.quiz_carousel,
-                R.drawable.discussion_carosel, R.drawable.ic_college, R.drawable.ic_brush_black_24dp, R.drawable.carousel1, R.drawable.soccerbot};
+                R.drawable.discussion_carosel, R.drawable.peoplevoice, R.drawable.carousel_exhibit, R.drawable.gaming_icon, R.drawable.robo_carousel};
         for (int i = 0; i < name.length; i++) {
             event = new TechEvent(name[i], prize[i], imgId[i],packageName+"."+classname[i]);
             events.add(event);
