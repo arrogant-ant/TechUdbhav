@@ -24,7 +24,7 @@ public class Insight extends AppCompatActivity {
 
     public void getDetails(View view) {
         Intent intent=new Intent(this,PdfViewer.class);
-        String detailURL = "https://drive.google.com/file/d/1Ta9ldjnRMFdceyiuteYYv0vj7B5KVi3U/view?usp=sharing";
+        String detailURL = "https://drive.google.com/file/d/1IiKvoLs5CzzK7kG4A0eA-IvNDm9BdoqF/view?usp=sharing";
         intent.putExtra("url", detailURL);
         startActivity(intent);
 

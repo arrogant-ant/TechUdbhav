@@ -83,24 +83,18 @@ public class SplashActivity extends AppCompatActivity {
 }
 */
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ProgressBar;
 import android.widget.VideoView;
 
 import com.felipecsl.gifimageview.library.GifImageView;
 
-import org.apache.commons.io.IOUtils;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-
 public class SplashActivity extends AppCompatActivity {
 
+    private String path;
     GifImageView gifImageView;
     private VideoView player;
     private static final String TAG = "SplashActivity";
@@ -111,10 +105,34 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
       //  gifImageView=findViewById(R.id.gifImageView);
         player=findViewById(R.id.video_player);
-        final String path="android.resource://inc.iris.techudbhav/"+R.raw.splash;
+        int i=(int)(Math.random()*10)%3;
+        path="android.resource://inc.iris.techudbhav/";
+        switch (i)
+        {
+            case 0:
+                path=path+R.raw.splash_blue;
+                break;
+            case 1:
+                path=path+R.raw.splash_red;
+                break;
+            case 2:
+                path=path+R.raw.splash_green;
+                break;
+            default:
+                path=path+R.raw.splash_blue;
+
+        }
+
         Uri uri=Uri.parse(path);
         player.setVideoURI(uri);
         player.start();
+        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                SplashActivity.this.startActivity(new Intent(SplashActivity.this,Login.class));
+                SplashActivity.this.finish();
+            }
+        });
 
         //set gifImageResource
       /*  try {
@@ -126,13 +144,12 @@ public class SplashActivity extends AppCompatActivity {
             Log.d(TAG, "onCreate: Caught exception");
         }*/
         //wait for 5 seconds
-        new Handler().postDelayed(new Runnable() {
+    /*    new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 player.stopPlayback();
-                SplashActivity.this.startActivity(new Intent(SplashActivity.this,Login.class));
-                SplashActivity.this.finish();
+
             }
-        },3000);
+        },3000);*/
     }
 }

@@ -23,7 +23,7 @@ public class MrMissTechnocratActivity extends AppCompatActivity {
     }
     public void getDetails(View view) {
         Intent intent=new Intent(this,PdfViewer.class);
-        String detailURL = "https://drive.google.com/file/d/1Ta9ldjnRMFdceyiuteYYv0vj7B5KVi3U/view?usp=sharing";
+        String detailURL = "https://drive.google.com/file/d/13yP57sB4WwkW8oEFLWUCPmibvqwi1Lbk/view?usp=drivesdk";
         intent.putExtra("url", detailURL);
         startActivity(intent);
 

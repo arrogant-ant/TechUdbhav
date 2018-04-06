@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="inc.iris.techudbhav.SplashActivity">
+    tools:context="inc.iris.techudbhav.SplashActivity"
+    android:gravity="center"
+    android:background="@drawable/background_gradient">
 
     <!-- <com.felipecsl.gifimageview.library.GifImageView
          android:layout_width="match_parent"
@@ -16,6 +18,7 @@
         android:id="@+id/video_player"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleX="1.2"
         />
 
 

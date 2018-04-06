@@ -47,26 +47,64 @@
                 android:value=".Home" />
         </activity>
         <activity android:name=".Registration" />
-        <activity android:name=".CampusAmbassador" />
-        <activity android:name=".Schedule" />
-        <activity android:name=".Workshops" />
-        <activity android:name=".Sponsors" />
+        <activity
+            android:name=".CampusAmbassador"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".Schedule"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".Workshops"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".Sponsors"
+            android:parentActivityName=".Home" />
         <activity android:name=".TechUdbhav" />
-        <activity android:name=".BITSindri" />
-        <activity android:name=".Team" />
-        <activity android:name=".MrMissTechnocratActivity" />
-        <activity android:name=".BytetheBits" />
-        <activity android:name=".SoccerBot" />
-        <activity android:name=".TechExpo" />
-        <activity android:name=".Insight" />
-        <activity android:name=".GeekoMania" />
-        <activity android:name=".GameOThon" />
-        <activity android:name=".PdfViewer" />
-        <activity android:name=".IndustrialProblemSolution" />
-        <activity android:name=".PeoplesVoice" />
-        <activity android:name=".Grafitti" />
-        <activity android:name=".MemeShow" />
-        <activity android:name=".EKryptics"></activity>
+        <activity
+            android:name=".BITSindri"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".Team"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".MrMissTechnocratActivity"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".BytetheBits"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".SoccerBot"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".TechExpo"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".Insight"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".GeekoMania"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".GameOThon"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".PdfViewer"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".IndustrialProblemSolution"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".PeoplesVoice"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".Grafitti"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".MemeShow"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".EKryptics"
+            android:parentActivityName=".EventsActivity" />
     </application>
 
 </manifest>

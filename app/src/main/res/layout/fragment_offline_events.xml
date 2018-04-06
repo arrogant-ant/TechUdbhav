@@ -22,7 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:cardCornerRadius="12dp"
         >
-
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="240dp">
@@ -35,6 +34,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="112dp"
                 android:text="Event Title"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +56,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/event_title"
                 app:layout_constraintVertical_bias="0.106" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Click Here..."
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="16dp"
+                android:textStyle="italic"
+                />
 
 
         </android.support.constraint.ConstraintLayout>

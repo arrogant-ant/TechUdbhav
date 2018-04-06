@@ -45,7 +45,7 @@ public class OnlineEventTab extends Fragment implements EventInterface {
         View view=inflater.inflate(R.layout.fragment_offline_events, container, false);
         setRecyclerView(view);
 
-        showcased=new TechEvent("eKryptics","10,000",R.drawable.technocrat,"inc.iris.techudbhav.MrMissTechnocratActivity");
+        showcased=new TechEvent("eKryptics","10,000",R.drawable.puzzlelogo,"inc.iris.techudbhav.MrMissTechnocratActivity");
         detailCard=view.findViewById(R.id.detail_card);
         detailCard.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:title="Developer"
+    app:title="CampusAmbassador"
 
-    tools:context="inc.iris.techudbhav.Developer">
+    tools:context="inc.iris.techudbhav.CampusAmbassador">
 <android.support.design.widget.AppBarLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -144,7 +144,8 @@ It's your chance to be the face of your campus and earn some perks through your 
                     android:layout_height="wrap_content"
                     android:text="More"
                     android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:onClick="getDetails"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -157,7 +158,8 @@ It's your chance to be the face of your campus and earn some perks through your 
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_action_name"/>
+        android:src="@drawable/ic_action_name"
+        android:onClick="register"/>
     
 
 

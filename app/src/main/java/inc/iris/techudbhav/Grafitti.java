@@ -23,7 +23,7 @@ public class Grafitti extends AppCompatActivity {
     }
     public void getDetails(View view) {
         Intent intent=new Intent(this,PdfViewer.class);
-        String detailURL = "https://drive.google.com/file/d/1Ta9ldjnRMFdceyiuteYYv0vj7B5KVi3U/view?usp=sharing";
+        String detailURL = "https://drive.google.com/file/d/1SdkjYvFm7kYC0qTnbazMThtFwcgwJCXb/view?usp=sharing";
         intent.putExtra("url", detailURL);
         startActivity(intent);
 

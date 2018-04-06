@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="12dp">
+        app:cardCornerRadius="12dp"
+        android:background="@mipmap/byte_the_bits">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import inc.iris.techudbhav.logic.NavigationHelper;
 
@@ -72,13 +73,13 @@ public class EventsActivity extends AppCompatActivity
             }
         });
 
-       /* viewPager.setPageMargin((int) (getResources().getDisplayMetrics().widthPixels * -0.33));
+    /*    viewPager.setPageMargin((int) (getResources().getDisplayMetrics().widthPixels * -0.2));
         viewPager.setOffscreenPageLimit(5);
-        viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+        viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View page, float position) {
-                page.setScaleX(0.7f - Math.abs(position * 0.4f));
-                page.setScaleY(0.8f - Math.abs(position * 0.6f));
+                page.setScaleX(0.8f - Math.abs(position * 0.4f));
+                page.setScaleY(0.9f - Math.abs(position * 0.6f));
                 page.setAlpha(1.0f - Math.abs(position * 0.5f));
             }
         });*/

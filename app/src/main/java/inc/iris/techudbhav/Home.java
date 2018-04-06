@@ -50,19 +50,7 @@ public class Home extends AppCompatActivity
         setNavigationHeader();
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /*CircleMenu circleMenu=(CircleMenu)findViewById(R.id.circle_Menu);
-        circleMenu.setMainMenu(Color.parseColor("#F44336"),R.drawable.workshop_two,R.drawable.workshop)
-                .addSubMenu(Color.parseColor("#00B0FF"),R.drawable.iotblack)
-                .addSubMenu(Color.parseColor("#006064"),R.drawable.android_appy)
-                .addSubMenu(Color.parseColor("#FF6F00"),R.drawable.cybersecurity)
-                .addSubMenu(Color.parseColor("#00BFA5"),R.drawable.robothree)
-                .addSubMenu(Color.parseColor("#FFCA28"),R.drawable.hacki)
-                .setOnMenuSelectedListener(new OnMenuSelectedListener() {
-                    @Override
-                    public void onMenuSelected(int i) {
-                        Toast.makeText(Home.this,"You selected"+arrayName[i],Toast.LENGTH_SHORT).show();
-                    }
-                });*/
+
 
 
 
@@ -132,27 +120,7 @@ public class Home extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

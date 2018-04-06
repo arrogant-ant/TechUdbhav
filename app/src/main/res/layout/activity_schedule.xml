@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:title="Developer"
-    tools:context="inc.iris.techudbhav.Developer">
+    tools:context="inc.iris.techudbhav.Schedule"
+    android:background="@drawable/coming_soon">
     <include
         layout="@layout/app_bar"
         android:layout_width="match_parent"
