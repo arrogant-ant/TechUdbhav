@@ -50,6 +50,9 @@ dependencies {
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
 
+    //bubble picker
+    compile 'com.github.igalata:Bubble-Picker:v0.1.1'
+
 
 }
 
