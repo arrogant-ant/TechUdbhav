@@ -26,7 +26,7 @@
                 android:contentDescription="@string/campus_ambassadorhead"
                 android:scaleType="centerCrop"
 
-                android:src="@drawable/groupdiscussion"
+                android:src="@drawable/techudbhavabout"
                 android:layout_width="match_parent"
                 android:layout_height="350dp" />
             <android.support.v7.widget.Toolbar
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="Tech Udbhav'18"
+
                 app:titleTextColor="#000000"
                 app:layout_collapseMode="pin">
 
@@ -68,44 +68,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Industrial Problem Solution"
+                    android:text="Tech Udbhav'18"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:gravity="center"
                     android:layout_marginTop="12dp"
                     android:padding="12dp"
                     android:textColor="@color/colorPrimaryText"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-                    <ImageView
-                        android:src="@drawable/discussion_icon"
-                        android:contentDescription="@string/app_name"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="30dp" />
-                    <TextView
-                        android:layout_weight="9"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="A good rule for discussion is to use hard facts and soft voice. "
-                        android:textSize="14sp"
-                        android:textStyle="italic"
-                        android:layout_gravity="center_vertical"
-                        android:padding="12dp"
-                        android:textColor="@color/colorPrimaryText"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="0dp"
-                    android:textAlignment="center"
-                    android:padding="12dp"
-                    />
+
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -113,30 +84,17 @@
                     android:textSize="15sp"
                     android:layout_marginTop="0dp"
                     android:padding="12dp"
-                    android:text="A Group Discussion Competition involving pre-final and final year students. Industrial Problems will be analysed to find out the solutions to the problem in a better way."
+                    android:text="To to be held on 14th April, 2018 by IETE, BIT Sindri (Institute OF Electronics and Telecommunication Engineers). 
+
+This Technical fest will be a high profile event which would attract students from colleges in and around Jharkhand to compete on a big scale and showcase their talent. This will be the Seventh Edition of TECH UDBHAV, the annual technical fest of the college. Last year, the event was attended by 2500 students and the expected footprints for 2018 is 3000+ students. The fest is a forum for similar minds to interact, share and discuss the latest happenings in the field of Technology and innovation     Apart from the technical events which include Quiz, Presentations, Lectures, tech Expo,Byte the bits(Coding),On spot games, Roborex (Robotics),Game -o-thon etc; the Technical fest will also have a host of non technical events which include games, Mega shows, Motivational Speaker etc. "
                     android:textAlignment="center"
                     android:lineSpacingMultiplier="1.5"/>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:text="Details"
-                    android:elevation="10dp"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
     </android.support.v4.widget.NestedScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:elevation="6dp"
-        app:pressedTranslationZ="12dp"
-        app:layout_anchor="@id/app_bar_layout"
-        app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_event_note_black_24dp"/>
 
 
 

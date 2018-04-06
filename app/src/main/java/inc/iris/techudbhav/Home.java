@@ -27,13 +27,67 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hitomi.cmlibrary.CircleMenu;
 import com.hitomi.cmlibrary.OnMenuSelectedListener;
+import com.igalata.bubblepicker.BubblePickerListener;
+import com.igalata.bubblepicker.model.PickerItem;
+import com.igalata.bubblepicker.rendering.BubblePicker;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
+
+import java.util.ArrayList;
 
 import inc.iris.techudbhav.logic.NavigationHelper;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    BubblePicker bubblePicker;
+    String[] name={
+            "Events",
+            "Tech Udbhav",
+            "Reach Us",
+            "",
+            "BIT Sindri",
+            "",""
+
+    };
+
+    int[] images={
+
+            R.drawable.gameothon,
+            R.drawable.techudbhavabout,
+            R.drawable.graffiti,
+            R.drawable.gaming_icon,
+            R.drawable.bitsindri,
+            R.drawable.carousel_exhibit,
+            R.drawable.groupdiscussion,
+           // R.drawable.groupdiscussion,
+            //R.drawable.groupdiscussion,
+            //R.drawable.groupdiscussion
+
+
+    };
+
+    int[] colors={
+            Color.parseColor("#E53935"),
+            Color.parseColor("#1DE9B6"),
+            Color.parseColor("#42A5F5"),
+            Color.parseColor("#F06292"),
+            Color.parseColor("#FF9800"),
+            Color.parseColor("#EEFF41"),
+            Color.parseColor("#00BCD4"),
+           // Color.parseColor("#673AB7"),
+            //Color.parseColor("#F06292"),
+           // Color.parseColor("#F06292")
+
+    };
+
+
+
+
+
+
+
+
 
     private static final String TAG = "Home";
     private CarouselView carouselView;
@@ -65,7 +119,58 @@ public class Home extends AppCompatActivity
 
         //carouselSetup
         carouselSetup();
+
+
+
+
+        //bubble picker
+        bubblePicker=findViewById(R.id.picker);
+        bubblePicker.setBubbleSize(80);
+
+        ArrayList<PickerItem> listItems = new ArrayList<>();
+        for(int i=0;i<name.length;i++){
+
+            PickerItem item= new PickerItem(name[i],colors[i],Color.WHITE,getDrawable(images[i]));
+            listItems.add(item);
+        }
+        bubblePicker.setItems(listItems);
+        bubblePicker.setListener(new BubblePickerListener() {
+            @Override
+            public void onBubbleSelected(PickerItem pickerItem) {
+
+                Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" selected",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onBubbleDeselected(PickerItem pickerItem) {
+                if (pickerItem.getTitle()=="Events"){
+                    Intent i= new Intent(Home.this,EventsActivity.class);
+                    startActivity(i);
+                }
+                // Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" Deselected",Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bubblePicker.onResume();
+    }
+    protected void onPause() {
+        super.onPause();
+        bubblePicker.onPause();
+    }
+
+
+
+
+
+
+
+
+
 
     private void setNavigationHeader() {
         navigationView =findViewById(R.id.navigation);
@@ -136,6 +241,10 @@ public class Home extends AppCompatActivity
 
 
     }
+
+
+
+
 
 
 
