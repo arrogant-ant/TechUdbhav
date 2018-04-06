@@ -75,7 +75,8 @@ public class EventsActivity extends AppCompatActivity
        /* viewPager.setPageMargin((int) (getResources().getDisplayMetrics().widthPixels * -0.33));
         viewPager.setOffscreenPageLimit(5);
         viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
-            @Override public void transformPage(View page, float position) {
+            @Override
+            public void transformPage(View page, float position) {
                 page.setScaleX(0.7f - Math.abs(position * 0.4f));
                 page.setScaleY(0.8f - Math.abs(position * 0.6f));
                 page.setAlpha(1.0f - Math.abs(position * 0.5f));

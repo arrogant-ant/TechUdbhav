@@ -7,11 +7,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="android:editTextStyle">@style/et</item>
-    </style>
-
-    <style name="et" parent="@android:style/Widget.EditText">
-        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
 
@@ -43,17 +38,17 @@
         <item name="android:paddingTop">14dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="colorControlActivated">@color/colorWhite</item>
+       <!-- <item name="colorControlActivated">@color/colorWhite</item>
         <item name="colorControlHighlight">@color/colorWhite</item>
         <item name="android:textColorHint">@color/colorWhite</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorWhite</item>-->
 
     </style>
     <style name="FirebaseUI.Text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textColor">@android:color/white</item>
+        <!--<item name="android:textColor">@android:color/white</item>-->
     </style>
 
     <style name="FirebaseUI.Text.TextInputLayout" parent="@style/FirebaseUI.TextInputEditText" />
@@ -63,12 +58,12 @@
     <style name="LoginTheme" parent="FirebaseUI">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@drawable/background_gradient</item>
+        <item name="android:windowBackground">@drawable/login_bg</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorControlNormal">@color/colorWhite</item>
+       <!-- <item name="colorControlNormal">@color/colorWhite</item>
         <item name="colorControlActivated">@color/colorWhite</item>
-        <item name="colorControlHighlight">@color/colorWhite</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>-->
     </style>
 
 

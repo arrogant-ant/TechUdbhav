@@ -83,11 +83,13 @@ public class SplashActivity extends AppCompatActivity {
 }
 */
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.VideoView;
 
 import com.felipecsl.gifimageview.library.GifImageView;
 
@@ -95,34 +97,42 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 
 public class SplashActivity extends AppCompatActivity {
 
     GifImageView gifImageView;
+    private VideoView player;
     private static final String TAG = "SplashActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        gifImageView=findViewById(R.id.gifImageView);
+      //  gifImageView=findViewById(R.id.gifImageView);
+        player=findViewById(R.id.video_player);
+        final String path="android.resource://inc.iris.techudbhav/"+R.raw.splash;
+        Uri uri=Uri.parse(path);
+        player.setVideoURI(uri);
+        player.start();
 
         //set gifImageResource
-        try {
+      /*  try {
             InputStream inputStream= getAssets().open("techudbhav.gif");
             byte[] bytes= IOUtils.toByteArray(inputStream);
             gifImageView.setBytes(bytes);
             gifImageView.startAnimation();
         } catch (Exception e) {
             Log.d(TAG, "onCreate: Caught exception");
-        }
+        }*/
         //wait for 5 seconds
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                SplashActivity.this.startActivity(new Intent(SplashActivity.this,Home.class));
+                player.stopPlayback();
+                SplashActivity.this.startActivity(new Intent(SplashActivity.this,Login.class));
                 SplashActivity.this.finish();
             }
-        },5000);
+        },3000);
     }
 }
