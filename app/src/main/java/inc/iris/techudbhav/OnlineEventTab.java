@@ -91,13 +91,13 @@ public class OnlineEventTab extends Fragment implements EventInterface {
         TechEvent event;
         String[] name = {"eKryptics", "Graffiti"
                 , "Meme Show"};
-        String[] classname={"MrMissTechnocratActivity", "BytetheBits"
-                , "Insight"};
+        String[] classname={"EKryptics", "Grafitti"
+                , "MemeShow"};
         String packageName="inc.iris.techudbhav";
 
         //TODO update prize and images accordingly
 
-        String[] prize = {"10,000", "12,100", "10,000"};
+        String[] prize = {"Event Over", "3000", "Exciting Prizes"};
         int[] imgId = {R.drawable.technocrat, R.drawable.coding, R.drawable.insight};
         for (int i = 0; i < name.length; i++) {
             event = new TechEvent(name[i], prize[i], imgId[i],packageName+"."+classname[i]);

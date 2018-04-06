@@ -35,7 +35,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:title="Tech Udbhav'18"
-                app:titleTextColor="#000000"
+                app:titleTextColor="#000"
                 app:layout_collapseMode="pin">
 
             </android.support.v7.widget.Toolbar>
