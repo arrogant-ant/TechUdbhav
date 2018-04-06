@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="inc.iris.techudbhav.SplashActivity"
-    >
+    tools:context="inc.iris.techudbhav.SplashActivity">
 
-    <com.felipecsl.gifimageview.library.GifImageView
+    <!-- <com.felipecsl.gifimageview.library.GifImageView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:scaleType="centerCrop"
+         android:id="@+id/gifImageView"
+         />-->
+    <VideoView
+        android:id="@+id/video_player"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:id="@+id/gifImageView"
         />
 
 

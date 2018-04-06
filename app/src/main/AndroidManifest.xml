@@ -11,7 +11,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@drawable/buddy"
@@ -25,13 +25,16 @@
             android:name=".EventsActivity"
             android:label="@string/title_activity_events"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".Login">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".Login">
+
         </activity>
         <activity android:name=".Developer">
             <meta-data
@@ -59,7 +62,6 @@
         <activity android:name=".GeekoMania" />
         <activity android:name=".GameOThon" />
         <activity android:name=".PdfViewer" />
-        <activity android:name=".GameOThon" />
         <activity android:name=".IndustrialProblemSolution" />
         <activity android:name=".PeoplesVoice" />
         <activity android:name=".Grafitti" />

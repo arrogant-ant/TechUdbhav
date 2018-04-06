@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:title="Developer"
+    app:title="EKryptics"
 
-    tools:context="inc.iris.techudbhav.Developer">
+    tools:context="inc.iris.techudbhav.EKryptics">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -126,6 +126,15 @@
                     android:text="The event will comprise of 15 questions. In each question a puzzle will be provided and one need to connect the links and skeptically answer the question. "
                     android:textAlignment="center"
                     android:lineSpacingMultiplier="1.5"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="Details"
+                    android:elevation="10dp"
+                    android:onClick="getDetails"
+                    />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -139,7 +148,8 @@
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_event_note_black_24dp"/>
+        android:src="@drawable/ic_event_note_black_24dp"
+        android:onClick="register"/>
 
 
 

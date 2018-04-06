@@ -34,17 +34,11 @@ public class NavigationHelper {
             case R.id.nav_gallery:
                 intent = new Intent(mContext, Gallery.class);
                 break;
-            case R.id.nav_reg:
-                intent = new Intent(mContext, Registration.class);
-                break;
             case R.id.nav_schedule:
                 intent = new Intent(mContext, Schedule.class);
                 break;
             case R.id.nav_sponsors:
                 intent = new Intent(mContext, Sponsors.class);
-                break;
-            case R.id.nav_workshops:
-                intent = new Intent(mContext, Workshops.class);
                 break;
             case R.id.nav_techudbhav:
                 intent = new Intent(mContext, TechUdbhav.class);

@@ -13,10 +13,7 @@
             android:id="@+id/nav_event"
             android:icon="@drawable/ic_event"
             android:title="Events" />
-        <item
-            android:id="@+id/nav_reg"
-            android:icon="@drawable/ic_reg"
-            android:title="Registration" />
+
         <item
             android:id="@+id/nav_ambassador"
             android:icon="@drawable/ic_business_center_black_24dp"
@@ -26,10 +23,7 @@
             android:id="@+id/nav_schedule"
             android:title="Schedule"
             />
-        <item
-            android:icon="@drawable/ic_build_black_24dp"
-            android:id="@+id/nav_workshops"
-            android:title="Workshops" />
+
         <item
             android:icon="@drawable/ic_monetization_on_black_24dp"
             android:id="@+id/nav_sponsors"
