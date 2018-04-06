@@ -1,23 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:title="Developer"
+
     tools:context="inc.iris.techudbhav.Developer">
-    <include
-        layout="@layout/app_bar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/apbar"/>
+        android:id="@+id/app_bar_layout"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
 
-    <ImageView
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            android:fitsSystemWindows="true">
+            <ImageView
+                app:layout_collapseMode="parallax"
+                android:contentDescription="@string/campus_ambassadorhead"
+                android:scaleType="centerCrop"
+
+                android:src="@drawable/groupdiscussion"
+                android:layout_width="match_parent"
+                android:layout_height="350dp" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="Tech Udbhav'18"
+                app:titleTextColor="#000000"
+                app:layout_collapseMode="pin">
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Industrial Problem Solution"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"
+                    android:padding="12dp"
+                    android:textColor="@color/colorPrimaryText"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+                    <ImageView
+                        android:src="@drawable/discussion_icon"
+                        android:contentDescription="@string/app_name"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp" />
+                    <TextView
+                        android:layout_weight="9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="A good rule for discussion is to use hard facts and soft voice. "
+                        android:textSize="14sp"
+                        android:textStyle="italic"
+                        android:layout_gravity="center_vertical"
+                        android:padding="12dp"
+                        android:textColor="@color/colorPrimaryText"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
+                    android:textAlignment="center"
+                    android:padding="12dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="0dp"
+                    android:padding="12dp"
+                    android:text="A Group Discussion Competition involving pre-final and final year students. Industrial Problems will be analysed to find out the solutions to the problem in a better way."
+                    android:textAlignment="center"
+                    android:lineSpacingMultiplier="1.5"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="Details"
+                    android:elevation="10dp"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/ic_tech_udhbhav" />
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/ic_event_note_black_24dp"/>
 
 
-</RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
