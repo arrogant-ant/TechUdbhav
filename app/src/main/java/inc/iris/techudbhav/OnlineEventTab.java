@@ -97,7 +97,7 @@ public class OnlineEventTab extends Fragment implements EventInterface {
 
         //TODO update prize and images accordingly
 
-        String[] prize = {"Event Over", "3000", "Exciting Prizes"};
+        String[] prize = {"Event Over", "₹ 3000", "Exciting Prizes"};
         int[] imgId = {R.drawable.puzzlelogo, R.drawable.graffiti_icon, R.drawable.memeshowone};
         for (int i = 0; i < name.length; i++) {
             event = new TechEvent(name[i], prize[i], imgId[i],packageName+"."+classname[i]);

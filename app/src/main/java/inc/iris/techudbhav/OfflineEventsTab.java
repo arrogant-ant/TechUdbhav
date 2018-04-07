@@ -104,7 +104,7 @@ public class OfflineEventsTab extends Fragment implements EventInterface {
 
         //TODO update prize and images accordingly
 
-        String[] prize = {"-", "10,000", "-", "-", "-","-", "Exciting Prizes", "-", "10,000"};
+        String[] prize = {"₹ 5000","₹ 10,000","₹ 3000","₹ 5000","₹ 3000","₹ 2000","₹ 8000","₹ 4000","₹ 10,000"};
         int[] imgId = {R.drawable.mrmiss_carousel, R.drawable.coding_carosel, R.drawable.insight, R.drawable.quiz_carousel,
                 R.drawable.discussion_carosel, R.drawable.peoplevoice, R.drawable.carousel_exhibit, R.drawable.gaming_icon, R.drawable.robo_carousel};
         for (int i = 0; i < name.length; i++) {

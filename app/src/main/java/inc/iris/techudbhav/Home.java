@@ -125,7 +125,7 @@ public class Home extends AppCompatActivity
 
         //bubble picker
         bubblePicker=findViewById(R.id.picker);
-        bubblePicker.setBubbleSize(80);
+        bubblePicker.setBubbleSize(100);
 
         ArrayList<PickerItem> listItems = new ArrayList<>();
         for(int i=0;i<name.length;i++){
@@ -147,6 +147,14 @@ public class Home extends AppCompatActivity
                     Intent i= new Intent(Home.this,EventsActivity.class);
                     startActivity(i);
                 }
+                else if (pickerItem.getTitle()=="Tech Udbhav"){
+                    Intent i= new Intent(Home.this,TechUdbhav.class);
+                    startActivity(i);
+                }
+                else if (pickerItem.getTitle()=="BIT Sindri"){
+                    Intent i= new Intent(Home.this,BITSindri.class);
+                    startActivity(i);
+                }
                 // Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" Deselected",Toast.LENGTH_SHORT).show();
 
             }
@@ -156,12 +164,12 @@ public class Home extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        bubblePicker.onResume();
+       // bubblePicker.onResume();
     }
-    protected void onPause() {
-        super.onPause();
-        bubblePicker.onPause();
-    }
+   protected void onPause() {
+       super.onPause();
+      ///  bubblePicker.onPause();
+  }
 
 
 
