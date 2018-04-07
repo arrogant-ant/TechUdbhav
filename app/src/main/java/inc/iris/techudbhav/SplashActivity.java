@@ -1,155 +1,129 @@
 package inc.iris.techudbhav;
-/*
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
 
-public class SplashActivity extends AppCompatActivity {
-
-    ImageView tech, udbhav,mascot;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        tech = findViewById(R.id.tech);
-        udbhav = findViewById(R.id.udbhav);
-        mascot=findViewById(R.id.mascot);
-        startAnimation();
-
-        Thread background = new Thread() {
-            public void run() {
-
-                try {
-
-
-                    // Thread will sleep for 1 seconds
-                    sleep(2500);
-                    Intent i = new Intent(getBaseContext(), Login.class);
-                    startActivity(i);
-
-                    //Remove activity
-                    finish();
-
-
-                } catch (Exception e) {
-
-                }
-            }
-        };
-
-        // start thread
-        background.start();
-    }
-
-    private void startAnimation() {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int screenWidth= displayMetrics.widthPixels;
-        int halfWidth =screenWidth/ 2;
-        int techWidth = tech.getMeasuredWidth();
-        int udbhavWidth = udbhav.getMeasuredWidth();
-
-        ObjectAnimator techAnimator = ObjectAnimator.ofFloat(tech, View.TRANSLATION_X, 0, halfWidth - techWidth);
-        techAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        techAnimator.setDuration(2000);
-
-        ObjectAnimator udbhavAnimator = ObjectAnimator.ofFloat(udbhav, View.TRANSLATION_X,screenWidth , -halfWidth);
-        udbhavAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        udbhavAnimator.setDuration(2000);
-
-        ObjectAnimator mascotAnimatorX=ObjectAnimator.ofFloat(mascot,View.SCALE_X,1,0.5f);
-        mascotAnimatorX.setInterpolator(new DecelerateInterpolator());
-        mascotAnimatorX.setDuration(2000);
-
-        ObjectAnimator mascotAnimatorY=ObjectAnimator.ofFloat(mascot,View.SCALE_Y,1,0.5f);
-        mascotAnimatorY.setInterpolator(new DecelerateInterpolator());
-        mascotAnimatorY.setDuration(2000);
-
-        AnimatorSet set=new AnimatorSet();
-        set.play(techAnimator).with(udbhavAnimator).with(mascotAnimatorX).with(mascotAnimatorY);
-        set.start();
-    }
-}
-*/
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.VideoView;
 
-import com.felipecsl.gifimageview.library.GifImageView;
+import java.util.Timer;
 
 public class SplashActivity extends AppCompatActivity {
-
+    private final static String APP_PACKAGE = "inc.iris.techudbhav";
     private String path;
-    GifImageView gifImageView;
     private VideoView player;
+    private Timer timeout;
+    final long delay = 2500;//2.5 sec delay
+
     private static final String TAG = "SplashActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-      //  gifImageView=findViewById(R.id.gifImageView);
-        player=findViewById(R.id.video_player);
-        int i=(int)(Math.random()*10)%3;
-        path="android.resource://inc.iris.techudbhav/";
-        switch (i)
-        {
-            case 0:
-                path=path+R.raw.splash_blue;
-                break;
-            case 1:
-                path=path+R.raw.splash_red;
-                break;
-            case 2:
-                path=path+R.raw.splash_green;
-                break;
-            default:
-                path=path+R.raw.splash_blue;
+        //  gifImageView=findViewById(R.id.gifImageView);
 
-        }
+        playVideo();
 
-        Uri uri=Uri.parse(path);
-        player.setVideoURI(uri);
-        player.start();
-        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                SplashActivity.this.startActivity(new Intent(SplashActivity.this,Login.class));
-                SplashActivity.this.finish();
-            }
-        });
-
-        //set gifImageResource
-      /*  try {
-            InputStream inputStream= getAssets().open("techudbhav.gif");
-            byte[] bytes= IOUtils.toByteArray(inputStream);
-            gifImageView.setBytes(bytes);
-            gifImageView.startAnimation();
-        } catch (Exception e) {
-            Log.d(TAG, "onCreate: Caught exception");
-        }*/
-        //wait for 5 seconds
-    /*    new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                player.stopPlayback();
-
-            }
-        },3000);*/
     }
+
+/*    private void parseVersion(String response) {
+        try {
+            JSONObject version = new JSONObject(response);
+            int current_version = BuildConfig.VERSION_CODE;
+            int min_version = version.getInt("min");
+            final boolean cancelable = version.getBoolean("cancelable");
+            Log.e("Splash", "min = " + min_version + " curr = " + current_version);
+
+            if (min_version > current_version) {
+                Log.e("Splash", "true");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateDialog(cancelable);
+                    }
+                });
+
+            } else {
+                Intent i = new Intent(getBaseContext(), Login.class);
+                startActivity(i);
+
+                //Remove activity
+                finish();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateDialog(boolean cancelable) {
+        Log.e("Splash", "update dialog, cancelable= " + cancelable);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(SplashActivity.this);
+        Log.e("Splash", "dialog builder");
+        builder.setTitle("Update")
+                .setMessage("'Tech Udbhav' has transformed to better")
+                .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PACKAGE)));
+                    }
+                })
+                .setCancelable((cancelable))
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        Intent i = new Intent(getBaseContext(), Login.class);
+                        startActivity(i);
+                        //Remove activity
+                        finish();
+
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        Log.e("Splash", "update dialog end");
+
+    }*/
+
+
+private void playVideo()
+{
+    player=findViewById(R.id.video_player);
+
+    int i = (int) (Math.random() * 10) % 3;
+    path="android.resource://inc.iris.techudbhav/";
+    switch(i)
+
+    {
+        case 0:
+            path = path + R.raw.splash_blue;
+            break;
+        case 1:
+            path = path + R.raw.splash_red;
+            break;
+        case 2:
+            path = path + R.raw.splash_green;
+            break;
+        default:
+            path = path + R.raw.splash_blue;
+
+    }
+
+    Uri uri = Uri.parse(path);
+    player.setVideoURI(uri);
+    player.start();
+    player.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+
+    {
+        @Override
+        public void onCompletion (MediaPlayer mediaPlayer){
+            SplashActivity.this.startActivity(new Intent(SplashActivity.this, Login.class));
+            SplashActivity.this.finish();
+        }
+    });
+}
+
+
 }

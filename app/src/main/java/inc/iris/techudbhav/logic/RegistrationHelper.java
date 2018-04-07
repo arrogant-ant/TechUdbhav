@@ -43,8 +43,12 @@ public class RegistrationHelper {
         KYC();
         Log.d(TAG, "register: ");
         mDatabase.child("registration").child(userID).child(eventName).push().setValue("registered");
-        Toast.makeText(mContext, "Successfully registered", Toast.LENGTH_SHORT).show();
-
+        final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setTitle("Registration success")
+                .setMessage("Thanks for registering.\nSee you soon")
+                .setCancelable(true);
+        AlertDialog dialog=builder.create();
+        dialog.show();
 
 
     }
@@ -86,8 +90,10 @@ public class RegistrationHelper {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_registration, null);
         builder.setView(view)
-                .setCancelable(false);
-        builder.create().show();
+                .setCancelable(true);
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
         final EditText nameET, collegeET, phET, emailET, rollET;
         Button submitBT;
 
@@ -114,7 +120,7 @@ public class RegistrationHelper {
                 else if (TextUtils.isEmpty(roll))
                     Toast.makeText(mContext, "Please enter your roll number", Toast.LENGTH_SHORT).show();
                 else if (ph.length() != 10)
-                    Toast.makeText(mContext, "Please enter valid mobile number "+ph.length(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Please enter valid mobile number ", Toast.LENGTH_SHORT).show();
                 else if (!email.contains("@"))
                     Toast.makeText(mContext, "Please enter valid email id", Toast.LENGTH_SHORT).show();
 
@@ -122,7 +128,7 @@ public class RegistrationHelper {
                 else {
                     Participant participant = new Participant(name, roll, college, ph, email);
                     writeNewParticipant(participant);
-                    
+                    dialog.dismiss();
 
                 }
             }

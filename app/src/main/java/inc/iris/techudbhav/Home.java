@@ -92,10 +92,10 @@ public class Home extends AppCompatActivity
     private static final String TAG = "Home";
     private CarouselView carouselView;
     private int[] carouselImages;
-    NavigationView navigationView;
-    View navHeader;
-    TextView userTv;
-    Button signOut;
+    private NavigationView navigationView;
+    private View navHeader;
+    private TextView userTv;
+    private Button signOut;
     String arrayName[]={"Internet Of Things","Android App Development","Cyber Security","Robotics","Ethical Hacking"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,6 +191,7 @@ public class Home extends AppCompatActivity
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(Home.this, "Sign Out Successful", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Home.this,Login.class));
+                                finish();
                             }
                         });
             }

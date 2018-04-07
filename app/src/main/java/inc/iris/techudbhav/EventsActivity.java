@@ -1,6 +1,8 @@
 package inc.iris.techudbhav;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -10,9 +12,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 import inc.iris.techudbhav.logic.NavigationHelper;
 
@@ -20,6 +32,11 @@ public class EventsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private NavigationView navigationView;
+    private View navHeader;
+    private TextView userTv;
+    private Button signOut;
+    private static final String TAG = "EventsActivity";
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
@@ -43,6 +60,31 @@ public class EventsActivity extends AppCompatActivity
 
     }
 
+    private void setNavigationHeader() {
+        navigationView =findViewById(R.id.navigation);
+        navHeader= navigationView.getHeaderView(0);
+        userTv=navHeader.findViewById(R.id.username);
+        String name= FirebaseAuth.getInstance().getCurrentUser().getDisplayName().split(" ")[0];
+        Log.d(TAG, "onCreate: user"+FirebaseAuth.getInstance().getCurrentUser()+"  name "+name);
+        if(name !=null && !TextUtils.isEmpty(name))
+            userTv.setText(name);
+        signOut=navHeader.findViewById(R.id.signOut_bt);
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //todo user signout
+                AuthUI.getInstance()
+                        .signOut(EventsActivity.this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(EventsActivity.this, "Sign Out Successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(EventsActivity.this,Login.class));
+                                finish();
+                            }
+                        });
+            }
+        });
+    }
     private void setViewPager() {
         EventPagerAdapter pagerAdapter;
         tabLayout=findViewById(R.id.tabs);

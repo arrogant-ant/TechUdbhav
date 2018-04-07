@@ -34,11 +34,12 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
         mRootView = findViewById(R.id.root);
+        signIn();
 
 
     }
 
-    public void signIn(View view) {
+    public void signIn() {
         startActivityForResult(
                 AuthUI.getInstance().createSignInIntentBuilder()
                         .setAvailableProviders(getSelectedProviders())
