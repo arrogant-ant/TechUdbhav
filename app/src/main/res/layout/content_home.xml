@@ -29,11 +29,12 @@
 
     <com.igalata.bubblepicker.rendering.BubblePicker
         android:id="@+id/picker"
-        app:backgroundColor="@color/colorPrimaryDark"
+        app:backgroundColor="@android:color/transparent"
         android:layout_marginTop="200dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
 
 
 

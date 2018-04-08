@@ -100,6 +100,7 @@
                     android:text="Who are you amidst that sea of strangers? Are you the one who wishes to rise above others and crowned as the face of crowd? Do you think you have it in you to walk that stage with your head held high , incorporating your technical views and knowledge into that perfect fashion you wish the world to witness?The stakes are high and the competition is tough but when it comes to this  title , everything is worth fighting for !"
                     android:textAlignment="center"
                     android:textSize="15sp"
+                    android:id="@+id/textView"
                     android:lineSpacingMultiplier="1.5"
                     android:layout_marginTop="0dp"
                     android:padding="12dp"
@@ -107,8 +108,10 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="end"
                     android:text="more"
+                    android:layout_marginEnd="30dp"
+                    android:id="@+id/button"
                     android:onClick="getDetails"/>
 
             </LinearLayout>
@@ -121,7 +124,7 @@
         android:layout_height="wrap_content"
         app:elevation="6dp"
         app:pressedTranslationZ="12dp"
-        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchor="@id/button"
         app:layout_anchorGravity="bottom|right|end"
         android:src="@drawable/ic_event_note_black_24dp"
         android:onClick="register"/>
