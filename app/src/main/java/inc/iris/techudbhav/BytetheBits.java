@@ -32,6 +32,5 @@ public class BytetheBits extends AppCompatActivity {
     public void register(View view) {
         RegistrationHelper helper=new RegistrationHelper(this);
         helper.register(TAG);
-        Toast.makeText(this, "Successfully registered", Toast.LENGTH_SHORT).show();
     }
 }

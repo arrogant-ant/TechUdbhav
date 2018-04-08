@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="inc.iris.techudbhav.SplashActivity"
-    android:gravity="center"
-    android:background="@drawable/background_gradient">
+    android:background="@drawable/background_gradient"
+    android:layout_gravity="center"
+    android:gravity="center">
 
     <!-- <com.felipecsl.gifimageview.library.GifImageView
          android:layout_width="match_parent"

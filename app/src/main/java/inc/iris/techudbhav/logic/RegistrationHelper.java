@@ -30,48 +30,53 @@ public class RegistrationHelper {
     DatabaseReference mDatabase;
     FirebaseUser user;
     String userID;
+    static String name="Tech Udbhav";
+    private String eventName;
     private static final String TAG = "RegistrationHelper";
 
     public RegistrationHelper(Context mContext) {
         this.mContext = mContext;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        userID=user.getUid();
+        userID = user.getUid();
     }
 
     public void register(String eventName) {
+        this.eventName=eventName;
         KYC();
         Log.d(TAG, "register: ");
-        mDatabase.child("registration").child(userID).child(eventName).push().setValue("registered");
-        final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle("Registration success")
-                .setMessage("Thanks for registering.\nSee you soon")
-                .setCancelable(true);
-        AlertDialog dialog=builder.create();
-        dialog.show();
+
 
 
     }
+    private void showSuccessDialog()
+    {
+        mDatabase.child("registration").child(userID).child(eventName).push().setValue("registered");
+        final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setTitle("Registration success")
+                .setMessage("\nThanks for registering.\n\tSee you soon")
+                .setCancelable(true);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
     private void KYC() {
-        DatabaseReference mParticipantReference=FirebaseDatabase.getInstance().getReference()
+        DatabaseReference mParticipantReference = FirebaseDatabase.getInstance().getReference()
                 .child("users").child(userID);
 
         ValueEventListener participantListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue()==null || dataSnapshot.getChildren()==null) {
-                        //Key does not exist
-                    Log.d(TAG, "onDataChange: "+dataSnapshot);
+                if (dataSnapshot.getValue() == null || dataSnapshot.getChildren() == null) {
+                    //Key does not exist
+                    Log.d(TAG, "onDataChange: " + dataSnapshot);
                     doKYC();
                 }
-              /*  else
+                else
                 {
-                    Participant participant=dataSnapshot.getValue(Participant.class);
-                    mDatabase.child("registration").child(userID).setValue(participant);
-                    Log.d(TAG, "onDataChange with details: "+dataSnapshot);
+                   showSuccessDialog();
 
-                }*/
+                }
             }
 
             @Override
@@ -129,6 +134,7 @@ public class RegistrationHelper {
                     Participant participant = new Participant(name, roll, college, ph, email);
                     writeNewParticipant(participant);
                     dialog.dismiss();
+                    showSuccessDialog();
 
                 }
             }
@@ -139,6 +145,39 @@ public class RegistrationHelper {
         Log.d(TAG, "writeNewParticipant: ");
         mDatabase.child("users").child(userID).setValue(participant);
         mDatabase.child("registration").child(userID).setValue(participant);
+
+    }
+
+    public  String getParticipantName() {
+        DatabaseReference mParticipantNameReference = FirebaseDatabase.getInstance().getReference()
+                .child("users").child(userID);
+
+        ValueEventListener participantListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() == null || dataSnapshot.getChildren() == null) {
+                    //Key does not exist
+                    Log.d(TAG, "onDataChange: " + dataSnapshot);
+                    String user_name = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+                    if (user_name != null)
+                        name = user_name;
+
+
+                } else {
+                    Participant participant = dataSnapshot.getValue(Participant.class);
+                    name=participant.getName();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        };
+        mParticipantNameReference.addListenerForSingleValueEvent(participantListener);
+        return name;
 
     }
 }

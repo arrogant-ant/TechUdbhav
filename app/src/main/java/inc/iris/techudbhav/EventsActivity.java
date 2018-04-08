@@ -1,5 +1,6 @@
 package inc.iris.techudbhav;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -27,6 +28,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import inc.iris.techudbhav.logic.NavigationHelper;
+import inc.iris.techudbhav.logic.RegistrationHelper;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class EventsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,9 +45,16 @@ public class EventsActivity extends AppCompatActivity
     private ViewPager viewPager;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/open_sans.ttf").setFontAttrId(R.attr.fontPath).build());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,18 +68,19 @@ public class EventsActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
         setViewPager();
+        setNavigationHeader();
 
     }
 
     private void setNavigationHeader() {
-        navigationView =findViewById(R.id.navigation);
-        navHeader= navigationView.getHeaderView(0);
-        userTv=navHeader.findViewById(R.id.username);
-        String name= FirebaseAuth.getInstance().getCurrentUser().getDisplayName().split(" ")[0];
-        Log.d(TAG, "onCreate: user"+FirebaseAuth.getInstance().getCurrentUser()+"  name "+name);
-        if(name !=null && !TextUtils.isEmpty(name))
-            userTv.setText(name);
-        signOut=navHeader.findViewById(R.id.signOut_bt);
+        navigationView = findViewById(R.id.navigation);
+        navHeader = navigationView.getHeaderView(0);
+        userTv = navHeader.findViewById(R.id.username);
+        String name=new RegistrationHelper(this).getParticipantName();
+        if (name != null && !TextUtils.isEmpty(name))
+            userTv.setText(name.split(" ")[0]);
+
+        signOut = navHeader.findViewById(R.id.signOut_bt);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +90,7 @@ public class EventsActivity extends AppCompatActivity
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(EventsActivity.this, "Sign Out Successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(EventsActivity.this,Login.class));
+                                startActivity(new Intent(EventsActivity.this, Login.class));
                                 finish();
                             }
                         });
@@ -175,4 +187,6 @@ public class EventsActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

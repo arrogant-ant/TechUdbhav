@@ -1,21 +1,23 @@
 package inc.iris.techudbhav;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,9 +26,11 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.hitomi.cmlibrary.CircleMenu;
-import com.hitomi.cmlibrary.OnMenuSelectedListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.igalata.bubblepicker.BubblePickerListener;
 import com.igalata.bubblepicker.model.PickerItem;
 import com.igalata.bubblepicker.rendering.BubblePicker;
@@ -36,22 +40,25 @@ import com.synnapps.carouselview.ImageListener;
 import java.util.ArrayList;
 
 import inc.iris.techudbhav.logic.NavigationHelper;
+import inc.iris.techudbhav.logic.RegistrationHelper;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     BubblePicker bubblePicker;
-    String[] name={
+    String[] name = {
             "Events",
             "Tech Udbhav",
             "Reach Us",
             "",
             "BIT Sindri",
-            "",""
+            "", ""
 
     };
 
-    int[] images={
+    int[] images = {
 
             R.drawable.gameothon,
             R.drawable.techudbhavabout,
@@ -60,14 +67,14 @@ public class Home extends AppCompatActivity
             R.drawable.bitsindri,
             R.drawable.carousel_exhibit,
             R.drawable.groupdiscussion,
-           // R.drawable.groupdiscussion,
+            // R.drawable.groupdiscussion,
             //R.drawable.groupdiscussion,
             //R.drawable.groupdiscussion
 
 
     };
 
-    int[] colors={
+    int[] colors = {
             Color.parseColor("#E53935"),
             Color.parseColor("#1DE9B6"),
             Color.parseColor("#42A5F5"),
@@ -75,18 +82,11 @@ public class Home extends AppCompatActivity
             Color.parseColor("#FF9800"),
             Color.parseColor("#EEFF41"),
             Color.parseColor("#00BCD4"),
-           // Color.parseColor("#673AB7"),
+            // Color.parseColor("#673AB7"),
             //Color.parseColor("#F06292"),
-           // Color.parseColor("#F06292")
+            // Color.parseColor("#F06292")
 
     };
-
-
-
-
-
-
-
 
 
     private static final String TAG = "Home";
@@ -96,16 +96,19 @@ public class Home extends AppCompatActivity
     private View navHeader;
     private TextView userTv;
     private Button signOut;
-    String arrayName[]={"Internet Of Things","Android App Development","Cyber Security","Robotics","Ethical Hacking"};
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setNavigationHeader();
-        Toolbar toolbar =  findViewById(R.id.toolbar);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/open_sans.ttf").setFontAttrId(R.attr.fontPath).build());
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -119,18 +122,18 @@ public class Home extends AppCompatActivity
 
         //carouselSetup
         carouselSetup();
-
-
+        //to check the version
+        checkUpdate();
 
 
         //bubble picker
-        bubblePicker=findViewById(R.id.picker);
+        bubblePicker = findViewById(R.id.picker);
         bubblePicker.setBubbleSize(100);
 
         ArrayList<PickerItem> listItems = new ArrayList<>();
-        for(int i=0;i<name.length;i++){
+        for (int i = 0; i < name.length; i++) {
 
-            PickerItem item= new PickerItem(name[i],colors[i],Color.WHITE,getDrawable(images[i]));
+            PickerItem item = new PickerItem(name[i], colors[i], Color.WHITE, getDrawable(images[i]));
             listItems.add(item);
         }
         bubblePicker.setItems(listItems);
@@ -138,21 +141,19 @@ public class Home extends AppCompatActivity
             @Override
             public void onBubbleSelected(PickerItem pickerItem) {
 
-                Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "" + pickerItem.getTitle() + " selected", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onBubbleDeselected(PickerItem pickerItem) {
-                if (pickerItem.getTitle()=="Events"){
-                    Intent i= new Intent(Home.this,EventsActivity.class);
+                if (pickerItem.getTitle() == "Events") {
+                    Intent i = new Intent(Home.this, EventsActivity.class);
                     startActivity(i);
-                }
-                else if (pickerItem.getTitle()=="Tech Udbhav"){
-                    Intent i= new Intent(Home.this,TechUdbhav.class);
+                } else if (pickerItem.getTitle() == "Tech Udbhav") {
+                    Intent i = new Intent(Home.this, TechUdbhav.class);
                     startActivity(i);
-                }
-                else if (pickerItem.getTitle()=="BIT Sindri"){
-                    Intent i= new Intent(Home.this,BITSindri.class);
+                } else if (pickerItem.getTitle() == "BIT Sindri") {
+                    Intent i = new Intent(Home.this, BITSindri.class);
                     startActivity(i);
                 }
                 // Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" Deselected",Toast.LENGTH_SHORT).show();
@@ -161,34 +162,85 @@ public class Home extends AppCompatActivity
         });
     }
 
+    private void checkUpdate() {
+        DatabaseReference mReference= FirebaseDatabase.getInstance().getReference("version");
+        ValueEventListener versionListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Integer minVersion=dataSnapshot.getValue(Integer.class);
+                int current_version = BuildConfig.VERSION_CODE;
+                if(minVersion>current_version)
+                {
+                    showUpdateDialog();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        };
+        mReference.addListenerForSingleValueEvent(versionListener);
+
+    }
+
+    private void showUpdateDialog() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+                Log.e("Splash", "dialog builder");
+                builder.setTitle("Update")
+                        .setMessage("'Tech Udbhav' has transformed to better")
+                        .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+                            }
+                        })
+                        .setCancelable(true)
+                        .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                            @Override
+                            public void onCancel(DialogInterface dialogInterface) {
+                                Intent i = new Intent(getBaseContext(), Login.class);
+                                startActivity(i);
+                                //Remove activity
+                                finish();
+
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-       // bubblePicker.onResume();
+        setNavigationHeader();
+
+        // bubblePicker.onResume();
     }
-   protected void onPause() {
-       super.onPause();
-      ///  bubblePicker.onPause();
-  }
 
-
-
-
-
-
-
-
+    protected void onPause() {
+        super.onPause();
+        ///  bubblePicker.onPause();
+    }
 
 
     private void setNavigationHeader() {
-        navigationView =findViewById(R.id.navigation);
-        navHeader= navigationView.getHeaderView(0);
-        userTv=navHeader.findViewById(R.id.username);
-        String name=FirebaseAuth.getInstance().getCurrentUser().getDisplayName().split(" ")[0];
-        Log.d(TAG, "onCreate: user"+FirebaseAuth.getInstance().getCurrentUser()+"  name "+name);
-        if(name !=null && !TextUtils.isEmpty(name))
-            userTv.setText(name);
-        signOut=navHeader.findViewById(R.id.signOut_bt);
+        navigationView = findViewById(R.id.navigation);
+        navHeader = navigationView.getHeaderView(0);
+        userTv = navHeader.findViewById(R.id.username);
+        String name=new RegistrationHelper(this).getParticipantName();
+            if (name != null && !TextUtils.isEmpty(name))
+                    userTv.setText(name.split(" ")[0]);
+
+        signOut = navHeader.findViewById(R.id.signOut_bt);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -198,7 +250,7 @@ public class Home extends AppCompatActivity
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(Home.this, "Sign Out Successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Home.this,Login.class));
+                                startActivity(new Intent(Home.this, Login.class));
                                 finish();
                             }
                         });
@@ -207,13 +259,13 @@ public class Home extends AppCompatActivity
     }
 
     private void carouselSetup() {
-        carouselImages=new int[]{R.drawable.carousel1,
+        carouselImages = new int[]{R.drawable.carousel1,
                 R.drawable.carousel2,
                 R.drawable.carousel3,
                 R.drawable.carousel4,
                 R.drawable.carousel5,
                 R.drawable.carousel6};
-        carouselView=findViewById(R.id.carousel);
+        carouselView = findViewById(R.id.carousel);
         carouselView.setPageCount(carouselImages.length);
         carouselView.setImageListener(new ImageListener() {
             @Override
@@ -235,13 +287,12 @@ public class Home extends AppCompatActivity
     }
 
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
 
-       NavigationHelper.navigate(this,item);
+        NavigationHelper.navigate(this, item);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -250,11 +301,6 @@ public class Home extends AppCompatActivity
 
 
     }
-
-
-
-
-
 
 
 }

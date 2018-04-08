@@ -10,6 +10,5 @@ public class Sponsors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsors);
-        Toast.makeText(Sponsors.this,"To be updated soon.",Toast.LENGTH_SHORT).show();
     }
 }

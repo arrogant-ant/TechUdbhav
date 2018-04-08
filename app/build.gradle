@@ -37,14 +37,13 @@ dependencies {
     //firebase auth
     compile 'com.firebaseui:firebase-ui-auth:3.2.2'
     // Required only if Facebook login support is required
-    compile('com.facebook.android:facebook-android-sdk:4.27.0')
+    //compile('com.facebook.android:facebook-android-sdk:4.27.0')
     //Required for circleMenu
-    compile 'com.github.hitomis:CircleMenu:v1.0.2'
+    //compile 'com.github.hitomis:CircleMenu:v1.0.2'
     //For splash screen
-    compile 'com.felipecsl:gifimageview:2.1.0'
-    compile 'commons-io:commons-io:2.4'
-    //for circle menu
-    compile 'com.github.hitomis:CircleMenu:v1.0.2'
+    // compile 'com.felipecsl:gifimageview:2.1.0'
+    // compile 'commons-io:commons-io:2.4'
+
 
     //text format
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'

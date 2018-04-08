@@ -24,7 +24,7 @@ public class MemeShow extends AppCompatActivity {
     }
     public void getDetails(View view) {
         Intent intent=new Intent(this,PdfViewer.class);
-        String detailURL = "https://drive.google.com/file/d/1Ta9ldjnRMFdceyiuteYYv0vj7B5KVi3U/view?usp=sharing";
+        String detailURL = "https://www.facebook.com/ietebits/photos/a.461625310646319.1073741826.461609930647857/1134508990024611/?type=3&theater";
         intent.putExtra("url", detailURL);
         startActivity(intent);
 
@@ -33,6 +33,5 @@ public class MemeShow extends AppCompatActivity {
     public void register(View view) {
         RegistrationHelper helper=new RegistrationHelper(this);
         helper.register(TAG);
-        Toast.makeText(this, "Successfully registered", Toast.LENGTH_SHORT).show();
     }
 }

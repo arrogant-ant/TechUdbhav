@@ -1,5 +1,6 @@
 package inc.iris.techudbhav;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,15 +11,22 @@ import android.view.View;
 import android.widget.Toast;
 
 import inc.iris.techudbhav.logic.RegistrationHelper;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class CampusAmbassador extends AppCompatActivity {
-
-
     private static final String TAG = "CampusAmbassador";
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campus_ambassador);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/open_sans.ttf").setFontAttrId(R.attr.fontPath).build());
+
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if(getSupportActionBar() != null)
@@ -36,6 +44,5 @@ public class CampusAmbassador extends AppCompatActivity {
     public void register(View view) {
         RegistrationHelper helper=new RegistrationHelper(this);
         helper.register(TAG);
-        Toast.makeText(this, "Successfully registered", Toast.LENGTH_SHORT).show();
     }
 }
