@@ -121,6 +121,13 @@
                   android:text="Details"
                   android:elevation="10dp"
                   android:onClick="getDetails"/>
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt"
+                    android:layout_gravity="end"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -131,9 +138,10 @@
         android:layout_height="wrap_content"
         app:elevation="6dp"
         app:pressedTranslationZ="12dp"
-        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchor="@id/txt"
+        android:layout_marginEnd="20dp"
         app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_event_note_black_24dp"
+        android:src="@drawable/register_icon"
         android:onClick="register"/>
 
 
