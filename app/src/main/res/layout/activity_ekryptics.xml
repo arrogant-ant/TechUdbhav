@@ -115,8 +115,7 @@
                     android:layout_marginTop="0dp"
                     android:padding="12dp"
                     android:text="Saving you all from the regular boring schedule, IETE presents you all with the platform to showcase your technical plus logical wit that could lead you up to the edge behind the horizon. "
-                    android:textAlignment="center"
-                    android:lineSpacingMultiplier="1.5"/>
+                    android:lineSpacingMultiplier="1.5" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -124,7 +123,6 @@
                     android:layout_marginTop="0dp"
                     android:padding="12dp"
                     android:text="The event will comprise of 15 questions. In each question a puzzle will be provided and one need to connect the links and skeptically answer the question. "
-                    android:textAlignment="center"
                     android:lineSpacingMultiplier="1.5"/>
                 <TextView
                     android:layout_width="match_parent"

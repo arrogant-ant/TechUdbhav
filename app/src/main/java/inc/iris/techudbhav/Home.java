@@ -2,6 +2,7 @@ package inc.iris.techudbhav;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -44,9 +45,9 @@ public class Home extends AppCompatActivity
             "Events",
             "Tech Udbhav",
             "Reach Us",
-            "",
+            "14th",
             "BIT Sindri",
-            "",""
+            "APRIL","2018"
 
     };
 
@@ -72,7 +73,7 @@ public class Home extends AppCompatActivity
             Color.parseColor("#42A5F5"),
             Color.parseColor("#F06292"),
             Color.parseColor("#FF9800"),
-            Color.parseColor("#EEFF41"),
+            Color.parseColor("#c1bfbf"),
             Color.parseColor("#00BCD4"),
            // Color.parseColor("#673AB7"),
             //Color.parseColor("#F06292"),
@@ -137,7 +138,7 @@ public class Home extends AppCompatActivity
             @Override
             public void onBubbleSelected(PickerItem pickerItem) {
 
-                Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" selected",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" selected",Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -153,6 +154,12 @@ public class Home extends AppCompatActivity
                 else if (pickerItem.getTitle()=="BIT Sindri"){
                     Intent i= new Intent(Home.this,BITSindri.class);
                     startActivity(i);
+                }
+                else if (pickerItem.getTitle()=="Reach Us"){
+                    Uri gmmIntentUri = Uri.parse("google.navigation:q=BIT+Sindri,+Dhanbad+India&mode=d");
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
                 }
                 // Toast.makeText(getApplicationContext(),""+pickerItem.getTitle()+" Deselected",Toast.LENGTH_SHORT).show();
 

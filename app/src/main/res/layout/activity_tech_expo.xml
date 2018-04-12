@@ -98,8 +98,6 @@
                 </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:textAlignment="center"
                     android:layout_height="wrap_content"
                     android:text="With a similar vision , Tech Expo provides you with a perfect platform to stand out from the crowd and showcase your plethora of innovative ideas  in the form of a model, prototype , patent , app or any software product infront of eminent panel of judges."
                     android:textSize="15sp"
@@ -141,11 +139,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:elevation="6dp"
+        android:layout_margin="8dp"
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/txt"
         android:layout_marginEnd="20dp"
         app:layout_anchorGravity="bottom|right|end"
         android:src="@drawable/register_icon"
+        android:onClick="register"
         />
 
 

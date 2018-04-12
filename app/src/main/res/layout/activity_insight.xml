@@ -110,7 +110,6 @@
                   android:textSize="15sp"
                   android:layout_marginTop="0dp"
                   android:padding="12dp"
-                  android:textAlignment="center"
                   android:lineSpacingMultiplier="1.5"
                   android:text="A Technical Paper Presentation competition with multi-round segments to embellish the public speaking skill of the students. Also, the topics are related to the latest technical advancements. This is an inter-college competition."/>
 
@@ -137,6 +136,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:elevation="6dp"
+        android:layout_margin="8dp"
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/txt"
         android:layout_marginEnd="20dp"

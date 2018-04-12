@@ -29,9 +29,5 @@ public class EKryptics extends AppCompatActivity {
 
     }
 
-    public void register(View view) {
-        RegistrationHelper helper=new RegistrationHelper(this);
-        helper.register(TAG);
 
-    }
 }

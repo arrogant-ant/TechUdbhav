@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -51,11 +49,11 @@ public class MyCustomAdapterGallery extends RecyclerView.Adapter<MyCustomAdapter
 
         if(position > previousPosition){ // We are scrolling DOWN
 
-            AnimationUtilGallery.animate(myViewHolder, true);
+            AnimationUtil.animate(myViewHolder, true);
 
         }else{ // We are scrolling UP
 
-            AnimationUtilGallery.animate(myViewHolder, false);
+            AnimationUtil.animate(myViewHolder, false);
 
 
         }

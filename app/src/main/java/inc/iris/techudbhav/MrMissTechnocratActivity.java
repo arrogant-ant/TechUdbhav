@@ -31,6 +31,8 @@ public class MrMissTechnocratActivity extends AppCompatActivity {
 
     public void register(View view) {
         RegistrationHelper helper=new RegistrationHelper(this);
+        Toast.makeText(this, "Please Wait...", Toast.LENGTH_SHORT).show();
+        AnimationUtil.animateButton(view);
         helper.register(TAG);
     }
 }

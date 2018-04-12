@@ -103,7 +103,6 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginTop="0dp"
-                    android:textAlignment="center"
                     android:padding="12dp"
                     />
 
@@ -116,7 +115,6 @@
                     android:text="A Visual Questioning Round which will connect the audience and amuse them with a technical tinge.
 A chance to put forward your logical views,queries and suggestion.
 Becoze even if you are on the right track you'll get run if u just sit there..... So use your voice."
-                    android:textAlignment="center"
                     android:lineSpacingMultiplier="1.5"/>
 
                 <!--<Button
@@ -142,11 +140,13 @@ Becoze even if you are on the right track you'll get run if u just sit there....
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:elevation="6dp"
+        android:layout_margin="8dp"
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/txt"
         android:layout_marginEnd="20dp"
         app:layout_anchorGravity="bottom|right|end"
         android:src="@drawable/register_icon"
+        android:onClick="register"
         />
 
 
